@@ -34,24 +34,26 @@ function SearchForm({addCountry}){
         return results;
     }; */
 
-    const handleSubmit =  (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (country.name !== "") {
-            fetch(`https://restcountries.eu/rest/v2/name/${country.name}?fullText=true`)
-            .then(response => response.json())
-            .then(data => {            
-                addCountry({...country,
-                    id: uuidv4(),
-                    flag: data[0].flag,
-                    region: data[0].region,
-                    capital: data[0].capital,
-                    languages: data[0].languages[0].name,
-                    currencies: data[0].currencies[0].name,
-                    population: data[0].population})
-                setCountry({...country, name: ""})
-            })
-        .catch(error=>alert(error))
-        }
+        const url = `https://restcountries.eu/rest/v2/name/${country.name}?fullText=true`
+        try {
+            const res = await fetch(url);
+            const results = await res.json();
+            
+            addCountry({...country,
+                id: uuidv4(),
+                flag: results[0].flag,
+                region: results[0].region,
+                capital: results[0].capital,
+                languages: results[0].languages[0].name,
+                currencies: results[0].currencies[0].name,
+                population: results[0].population})
+            setCountry({...country, name: ""})
+        } 
+        catch(err) {
+            alert(err)
+        };
     };
 
 
