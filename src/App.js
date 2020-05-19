@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SearchForm from './components/SearchForm';
+import CountryList from './components/CountryList';
+
+
 
 function App() {
+
+  const [countries, setCountries] = useState([]);
+
+  const addCountry = (country) => {
+    if (!countries.includes(country)){
+    setCountries([...countries, country])
+    console.log(countries)
+    }
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Countries of the world</h1>
+      <SearchForm addCountry = {addCountry} />
+      <CountryList countries = {countries}/>
     </div>
   );
 }
