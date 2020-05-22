@@ -58,7 +58,7 @@ function SearchForm({addCountry}){
 
 
     return(
-    <div>
+    <div className = "m-4">
         <form onSubmit = {handleSubmit}>
             <input value = {country.name} onChange = {handleInput} type = "input" placeholder = "type the country" />
             <button type = "submit">Search</button>

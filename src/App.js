@@ -9,15 +9,14 @@ function App() {
   const [countries, setCountries] = useState([]);
 
   const addCountry = (country) => {
-    if (!countries.includes(country)){
+    debugger;
     setCountries([...countries, country])
     console.log(countries)
-    }
   };
   
   return (
-    <div>
-      <h1>Countries of the world</h1>
+    <div className = "d-flex flex-column text-center align-items-center">
+      <h1 className = "mt-4">Countries of the world</h1>
       <SearchForm addCountry = {addCountry} />
       <CountryList countries = {countries}/>
     </div>
