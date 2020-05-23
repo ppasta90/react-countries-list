@@ -3,7 +3,6 @@ import SearchForm from './components/SearchForm';
 import CountryList from './components/CountryList';
 
 
-
 function App() {
 
   const [countries, setCountries] = useState([]);

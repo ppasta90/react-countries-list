@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media screen and (min-width: 768px) {
+
+  .country-list-container {
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  };
+};

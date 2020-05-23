@@ -5,7 +5,7 @@ function CountryList({countries}) {
 
     
     return (
-        <div>
+        <div className = "country-list-container container">
             {
             countries.map(country => (
                 <CountryCard  key = {country.id} country= {country} />
