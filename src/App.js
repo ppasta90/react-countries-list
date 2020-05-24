@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import SearchForm from './components/SearchForm';
 import CountryList from './components/CountryList';
-
+// TODO figure out differences app.css and index.css
 
 function App() {
 
   const [countries, setCountries] = useState([]);
 
   const addCountry = (country) => {
-    debugger;
+    if (!countries.some(c => c.name === country.name)){
     setCountries([...countries, country])
     console.log(countries)
+    } else {
+      alert("This country is already in the list")
+    }
   };
   
   return (

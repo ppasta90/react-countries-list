@@ -48,7 +48,7 @@ function SearchForm({addCountry}){
                 capital: results[0].capital,
                 languages: results[0].languages[0].name,
                 currencies: results[0].currencies[0].name,
-                population: results[0].population})
+                population: results[0].population}) // TODO format number
             setCountry({...country, name: ""})
         } 
         catch(err) {
@@ -60,7 +60,7 @@ function SearchForm({addCountry}){
     return(
     <div className = "m-4">
         <form onSubmit = {handleSubmit}>
-            <input value = {country.name} onChange = {handleInput} type = "input" placeholder = "type the country" />
+            <input value = {country.name} onChange = {handleInput} type = "input" placeholder = "type the name of the country" />
             <button type = "submit">Search</button>
         </form>
     </div>
