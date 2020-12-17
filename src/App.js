@@ -16,7 +16,7 @@ function App() {
   return (
     <div className = "d-flex flex-column text-center align-items-center">
       <h1 className = "mt-4">Countries of the world</h1>
-      <SearchForm addCountry = {addCountry} />
+      <SearchForm addCountry = {addCountry} countries={countries} />
       <CountryList countries = {countries}/>
     </div>
   );
